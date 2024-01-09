@@ -1,0 +1,16 @@
+---
+import { createStyles, getDynamicLocalLink, type CssStyleObject } from '../helpers';
+
+interface Props {
+  style?: CssStyleObject;
+  src: string;
+  alt: string;
+  external?: boolean;
+}
+
+const { style, src, alt, external = false } = Astro.props;
+
+const modifiedSrc = external ? src : getDynamicLocalLink(src);
+---
+
+<img style={{ ...createStyles(style) }} src={modifiedSrc} alt={alt} />

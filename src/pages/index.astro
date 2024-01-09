@@ -1,0 +1,18 @@
+---
+const files = await Astro.glob('./*.astro');
+---
+
+<main style={{ padding: '8px', overflow: 'auto' }}>
+  <h1>Emailer list</h1>
+  <ul>
+    {
+      files.map((file) => (
+        <li style={{ fontSize: '1.4rem' }}>
+          <a href={file.url?.replace('.html', '')}>
+            {file.url?.replace('.html', '').replace('/', '')}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</main>

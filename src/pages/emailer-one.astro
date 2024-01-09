@@ -1,0 +1,29 @@
+---
+import DefaultLayout from '../layouts/DefaultLayout.astro';
+import H1 from '../components/H1.astro';
+import { createStyles } from '../helpers';
+import Image from '../components/Image.astro';
+
+const someHTMLString = `<%= name %>`;
+---
+
+<DefaultLayout title="Emailer One">
+  <H1
+    style={createStyles({
+      color: 'red',
+    })}
+  >
+    This is an email template
+  </H1>
+  <div>
+    Hello <div>{someHTMLString}</div>
+
+    <Image
+      src="siddhesh-mangela-f1akGmpTe5M-unsplash.jpg"
+      alt="siddhesh"
+      style={createStyles({
+        display: 'block',
+      })}
+    />
+  </div>
+</DefaultLayout>
