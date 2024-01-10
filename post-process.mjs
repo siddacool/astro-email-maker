@@ -89,6 +89,39 @@ async function renameFiles(location, fileExtension) {
 }
 
 /**
+ * A class for deleting folders asynchronously.
+ */
+class FolderDeleter {
+  /**
+   * Create a FolderDeleter instance.
+   * @param {string} folderPath - The path to the folder to be deleted.
+   */
+  constructor(folderPath) {
+    /**
+     * The path to the folder to be deleted.
+     * @type {string}
+     * @private
+     */
+    this.folderPath = folderPath;
+  }
+
+  /**
+   * Asynchronously delete the specified folder and its contents.
+   * @async
+   * @returns {Promise<void>} A Promise that resolves when the deletion is complete.
+   */
+  async deleteFolder() {
+    try {
+      await fs.rm(this.folderPath, { recursive: true });
+
+      return Promise.resolve();
+    } catch (err) {
+      return Promise.reject(err);
+    }
+  }
+}
+
+/**
  * Asynchronously renames HTML files to EJS files within a specified location.
  *
  * @param {string} location - The path to the directory containing the files.
@@ -107,8 +140,9 @@ async function cleanupUnsuedFiles(location) {
 
     // Delete _astro folder
     const astroFolderPath = path.join(location, '_astro');
+    const folderDeleter = new FolderDeleter(astroFolderPath);
 
-    await fs.rm(astroFolderPath, { recursive: true });
+    await folderDeleter.deleteFolder();
 
     console.log('[Post Processing]: Cleanup Unsued Files');
 

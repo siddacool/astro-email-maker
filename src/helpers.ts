@@ -1,39 +1,12 @@
-import type { CSSProperties } from 'react';
+import type { JSX } from 'solid-js';
+
+export type CSSProperties = JSX.CSSProperties;
 
 export const baseComponentStyles: CSSProperties = {
-  boxSizing: 'border-box',
+  'box-sizing': 'border-box',
 };
 
-function convertNumericToPixelsValue(value: string | number) {
-  if (typeof value !== 'number') {
-    return value;
-  }
-
-  if (value === 0) {
-    return '0';
-  }
-
-  return `${value}px`;
-}
-
-export function createAstroStyles(style?: CSSProperties) {
-  const fixedStyles: any = {};
-
-  if (style) {
-    for (const [key, value] of Object.entries(style)) {
-      fixedStyles[key] = convertNumericToPixelsValue(value);
-    }
-  }
-
-  const combineStyles = {
-    ...baseComponentStyles,
-    ...fixedStyles,
-  };
-
-  return combineStyles as CSSProperties;
-}
-
-export function createReactStyles(style?: CSSProperties) {
+export function createStyles(style?: CSSProperties) {
   const combineStyles = {
     ...baseComponentStyles,
     ...style,
