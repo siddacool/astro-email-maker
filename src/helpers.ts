@@ -1,6 +1,6 @@
-import type * as CSS from 'csstype';
+import type { CSSProperties } from 'react';
 
-export const baseComponentStyles: CSS.Properties<string | number> = {
+export const baseComponentStyles: CSSProperties = {
   boxSizing: 'border-box',
 };
 
@@ -16,7 +16,7 @@ function convertNumericToPixelsValue(value: string | number) {
   return `${value}px`;
 }
 
-export function createStyles(style?: CSS.Properties<string | number>) {
+export function createAstroStyles(style?: CSSProperties) {
   const fixedStyles: any = {};
 
   if (style) {
@@ -30,7 +30,16 @@ export function createStyles(style?: CSS.Properties<string | number>) {
     ...fixedStyles,
   };
 
-  return combineStyles as CSS.Properties<string | number>;
+  return combineStyles as CSSProperties;
+}
+
+export function createReactStyles(style?: CSSProperties) {
+  const combineStyles = {
+    ...baseComponentStyles,
+    ...style,
+  };
+
+  return combineStyles as CSSProperties;
 }
 
 export function getDynamicLocalLink(link: string) {

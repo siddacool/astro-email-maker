@@ -44,21 +44,13 @@ rendered email templates are stored in `dist` folder
 
 ## Helper functions
 
-### createStyles
+### createAstroStyles
 
-A fully type checked function to pass inline css.
+A fully type checked function to pass inline css. for .astro
 
-It can be utilized like the following
+### createReactStyles
 
-```jsx
-<H1
-  style={createStyles({
-    color: 'red',
-  })}
->
-  This is an email template
-</H1>
-```
+A fully type checked function to pass inline css. for .tsx
 
 ## Configurations
 

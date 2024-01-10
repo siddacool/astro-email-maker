@@ -1,5 +1,12 @@
 {
   "cSpell.words": [
     "astro"
+  ],
+  "cSpell.enableFiletypes": [
+    "!javascript",
+    "!json",
+    "!jsonc",
+    "!typescript",
+    "!yaml"
   ]
 }

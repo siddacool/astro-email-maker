@@ -1,17 +1,18 @@
 ---
 import DefaultLayout from '../layouts/DefaultLayout.astro';
-import H1 from '../components/H1.astro';
-import { createStyles } from '../helpers';
-import Image from '../components/Image.astro';
+import Image from '../components/Image.tsx';
+import { H1 } from '../components/Heading';
 
 const someHTMLString = `<%= name %>`;
 ---
 
 <DefaultLayout title="Emailer One">
   <H1
-    style={createStyles({
+    style={{
       color: 'red',
-    })}
+      display: 'block',
+      width: 18,
+    }}
   >
     This is an email template
   </H1>
@@ -21,9 +22,9 @@ const someHTMLString = `<%= name %>`;
     <Image
       src="siddhesh-mangela-f1akGmpTe5M-unsplash.jpg"
       alt="siddhesh"
-      style={createStyles({
+      style={{
         display: 'block',
-      })}
+      }}
     />
   </div>
 </DefaultLayout>
