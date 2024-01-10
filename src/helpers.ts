@@ -1,18 +1,36 @@
-import { type CSSProperties } from 'react';
+import type * as CSS from 'csstype';
 
-export type CssStyleObject = CSSProperties;
-
-export const baseComponentStyles: CssStyleObject = {
+export const baseComponentStyles: CSS.Properties<string | number> = {
   boxSizing: 'border-box',
 };
 
-export function createStyles(style?: CssStyleObject) {
+function convertNumericToPixelsValue(value: string | number) {
+  if (typeof value !== 'number') {
+    return value;
+  }
+
+  if (value === 0) {
+    return '0';
+  }
+
+  return `${value}px`;
+}
+
+export function createStyles(style?: CSS.Properties<string | number>) {
+  const fixedStyles: any = {};
+
+  if (style) {
+    for (const [key, value] of Object.entries(style)) {
+      fixedStyles[key] = convertNumericToPixelsValue(value);
+    }
+  }
+
   const combineStyles = {
     ...baseComponentStyles,
-    ...style,
+    ...fixedStyles,
   };
 
-  return combineStyles as CssStyleObject;
+  return combineStyles as CSS.Properties<string | number>;
 }
 
 export function getDynamicLocalLink(link: string) {
