@@ -2,6 +2,10 @@
 
 Create static email templates using the power of [Astro](https://astro.build/).
 
+## How this project came to be?
+
+I was using a custom static email builder based on react which hacked react server components renderer to generate html file. It was fine but with astro I was able to replicate the functionality with minimal changes. Astro support features like file based routing, in-line styles, a vite based build system and at the end generates a clean html code.
+
 ## Prerequisite
 
 1. Node v18 (or higher)
@@ -71,7 +75,3 @@ Enable/disable Html compression. By default it's `FALSE`, set `TRUE` to enable c
 ### VITE_DYNAMIC_LOCAL_PATH
 
 dynamic local path agreeing public email `public/email/` folder. it's left blank by default
-
-## How this project came to be?
-
-I was using a custom static email builder based on react which hacked react server components renderer to generate html file. It was fine but with astro I was able to replicate the functionality with minimal changes. Astro support features like file based routing, in-line styles, a vite based build system and at the end generates a clean html code.
