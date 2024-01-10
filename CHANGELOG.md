@@ -7,13 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.2.0] - 2024-1-10
 
+### Fixed
+
+- build time warning in post-process fixed
+
 ### Removed
 
 - React removed in favour of solid-js
+- helpers: createReactStyles and createAstroStyles in favour of common createStyles
 
 ### Added
 
 - solid-js as preferred component creator
+- helpers: createStyles added with solid-js type checking
 
 ## [1.1.0] - 2024-1-10
 
