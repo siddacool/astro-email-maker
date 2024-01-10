@@ -1,13 +1,4 @@
 {
-  "cSpell.words": [
-    "astro",
-    "csstype"
-  ],
-  "cSpell.enableFiletypes": [
-    "!javascript",
-    "!json",
-    "!jsonc",
-    "!typescript",
-    "!yaml"
-  ]
+  "cSpell.words": ["astro", "csstype"],
+  "cSpell.enableFiletypes": ["!javascript", "!json", "!jsonc", "!typescript", "!yaml"]
 }

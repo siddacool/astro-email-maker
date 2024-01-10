@@ -1,48 +1,45 @@
-import type { CSSProperties, FC, ReactNode } from 'react';
-import { createReactStyles } from '../helpers';
+import { createStyles, type CSSProperties } from '../helpers';
+import type { ParentComponent } from 'solid-js';
 
 export type ListProps = {
   variant: 'ol' | 'ul';
-  children?: ReactNode;
   style?: CSSProperties;
 };
 
 export type ListExtendProps = {
-  children?: ReactNode;
   style?: CSSProperties;
 };
 
 export type ListItemProps = {
-  children?: ReactNode;
   style?: CSSProperties;
 };
 
-export const List: FC<ListProps> = ({ children, variant, style }) => {
-  const combinedStyles = createReactStyles(style);
+export const List: ParentComponent<ListProps> = (props) => {
+  const combinedStyles = createStyles(props.style);
 
-  if (variant === 'ul') {
-    return <ul style={combinedStyles}>{children}</ul>;
+  if (props.variant === 'ul') {
+    return <ul style={combinedStyles}>{props.children}</ul>;
   }
 
-  if (variant === 'ol') {
-    return <ol style={combinedStyles}>{children}</ol>;
+  if (props.variant === 'ol') {
+    return <ol style={combinedStyles}>{props.children}</ol>;
   }
 
   return <></>;
 };
 
-export const Ul: FC<ListExtendProps> = ({ children, style }) => (
-  <List variant="ul" style={style}>
-    {children}
+export const Ul: ParentComponent<ListExtendProps> = (props) => (
+  <List variant="ul" style={props.style}>
+    {props.children}
   </List>
 );
 
-export const Ol: FC<ListExtendProps> = ({ children, style }) => (
-  <List variant="ol" style={style}>
-    {children}
+export const Ol: ParentComponent<ListExtendProps> = (props) => (
+  <List variant="ol" style={props.style}>
+    {props.children}
   </List>
 );
 
-export const Li: FC<ListExtendProps> = ({ children, style }) => (
-  <li style={createReactStyles(style)}>{children}</li>
+export const Li: ParentComponent<ListExtendProps> = (props) => (
+  <li style={createStyles(props.style)}>{props.children}</li>
 );

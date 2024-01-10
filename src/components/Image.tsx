@@ -1,5 +1,5 @@
-import type { CSSProperties, FC } from 'react';
-import { createReactStyles, getDynamicLocalLink } from '../helpers';
+import type { Component } from 'solid-js';
+import { getDynamicLocalLink, type CSSProperties, createStyles } from '../helpers';
 
 export type ImageProps = {
   src: string;
@@ -8,10 +8,10 @@ export type ImageProps = {
   style?: CSSProperties;
 };
 
-const Image: FC<ImageProps> = ({ src, alt, external = false, style }) => {
-  const modifiedSrc = external ? src : getDynamicLocalLink(src);
+const Image: Component<ImageProps> = (props) => {
+  const modifiedSrc = props.external === true ? props.src : getDynamicLocalLink(props.src);
 
-  return <img style={createReactStyles(style)} src={modifiedSrc} alt={alt} />;
+  return <img style={createStyles(props.style)} src={modifiedSrc} alt={props.alt} />;
 };
 
 export default Image;

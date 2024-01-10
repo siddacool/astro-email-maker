@@ -1,6 +1,6 @@
 ---
 import DefaultLayout from '../layouts/DefaultLayout.astro';
-import Image from '../components/Image.tsx';
+import Image from '../components/Image';
 import { H1 } from '../components/Heading';
 
 const someHTMLString = `<%= name %>`;
@@ -11,7 +11,7 @@ const someHTMLString = `<%= name %>`;
     style={{
       color: 'red',
       display: 'block',
-      width: 18,
+      width: '200px',
     }}
   >
     This is an email template
