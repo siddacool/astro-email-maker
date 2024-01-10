@@ -1,6 +1,6 @@
-# Astro email maker
+# Astronomical email creator ⚛
 
-Create static email templates using the power of [Astro](https://astro.build/).
+Create static email templates using the power of [Astro](https://astro.build/). And the convenience of [React](https://react.dev/)
 
 ## How this project came to be?
 
@@ -10,8 +10,9 @@ I was using a custom static email builder based on react which hacked react serv
 
 1. Node v18 (or higher)
 2. pnpm
-3. Basic knowledge of [Astro](https://astro.build/). (it's not that complicated)
-4. Basic knowledge of making an email templates.
+3. Basic knowledge of [React](https://react.dev/).
+4. Basic knowledge of [Astro](https://astro.build/). (it's not that complicated)
+5. Basic knowledge of making an email templates.
 
 ## Setup
 
@@ -44,21 +45,13 @@ rendered email templates are stored in `dist` folder
 
 ## Helper functions
 
-### createStyles
+### createAstroStyles
 
-A fully type checked function to pass inline css.
+A fully type checked function to pass inline css. for .astro
 
-It can be utilized like the following
+### createReactStyles
 
-```jsx
-<H1
-  style={createStyles({
-    color: 'red',
-  })}
->
-  This is an email template
-</H1>
-```
+A fully type checked function to pass inline css. for .tsx
 
 ## Configurations
 

@@ -105,6 +105,11 @@ async function cleanupUnsuedFiles(location) {
       await fs.unlink(indexPath);
     }
 
+    // Delete _astro folder
+    const astroFolderPath = path.join(location, '_astro');
+
+    await fs.rm(astroFolderPath, { recursive: true });
+
     console.log('[Post Processing]: Cleanup Unsued Files');
 
     return Promise.resolve();
